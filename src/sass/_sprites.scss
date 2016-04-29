@@ -1,0 +1,239 @@
+/*
+SCSS variables are information about icon's compiled state, stored under its original file name
+
+.icon-home {
+  width: $icon-home-width;
+}
+
+The large array-like variables contain all information about a single icon
+$icon-home: x y offset_x offset_y width height total_width total_height image_path;
+
+At the bottom of this section, we provide information about the spritesheet itself
+$spritesheet: width height image $spritesheet-sprites;
+*/
+$answer-name: 'answer';
+$answer-x: 0px;
+$answer-y: 0px;
+$answer-offset-x: 0px;
+$answer-offset-y: 0px;
+$answer-width: 1014px;
+$answer-height: 242px;
+$answer-total-width: 1729px;
+$answer-total-height: 989px;
+$answer-image: '../images/sprite.png';
+$answer: (0px, 0px, 0px, 0px, 1014px, 242px, 1729px, 989px, '../images/sprite.png', 'answer', );
+$logo-small-name: 'logo-small';
+$logo-small-x: 1014px;
+$logo-small-y: 520px;
+$logo-small-offset-x: -1014px;
+$logo-small-offset-y: -520px;
+$logo-small-width: 596px;
+$logo-small-height: 90px;
+$logo-small-total-width: 1729px;
+$logo-small-total-height: 989px;
+$logo-small-image: '../images/sprite.png';
+$logo-small: (1014px, 520px, -1014px, -520px, 596px, 90px, 1729px, 989px, '../images/sprite.png', 'logo-small', );
+$logo-name: 'logo';
+$logo-x: 0px;
+$logo-y: 857px;
+$logo-offset-x: 0px;
+$logo-offset-y: -857px;
+$logo-width: 874px;
+$logo-height: 132px;
+$logo-total-width: 1729px;
+$logo-total-height: 989px;
+$logo-image: '../images/sprite.png';
+$logo: (0px, 857px, 0px, -857px, 874px, 132px, 1729px, 989px, '../images/sprite.png', 'logo', );
+$question-0-name: 'question-0';
+$question-0-x: 1014px;
+$question-0-y: 183px;
+$question-0-offset-x: -1014px;
+$question-0-offset-y: -183px;
+$question-0-width: 630px;
+$question-0-height: 179px;
+$question-0-total-width: 1729px;
+$question-0-total-height: 989px;
+$question-0-image: '../images/sprite.png';
+$question-0: (1014px, 183px, -1014px, -183px, 630px, 179px, 1729px, 989px, '../images/sprite.png', 'question-0', );
+$question-1-name: 'question-1';
+$question-1-x: 0px;
+$question-1-y: 491px;
+$question-1-offset-x: 0px;
+$question-1-offset-y: -491px;
+$question-1-width: 715px;
+$question-1-height: 183px;
+$question-1-total-width: 1729px;
+$question-1-total-height: 989px;
+$question-1-image: '../images/sprite.png';
+$question-1: (0px, 491px, 0px, -491px, 715px, 183px, 1729px, 989px, '../images/sprite.png', 'question-1', );
+$question-2-name: 'question-2';
+$question-2-x: 0px;
+$question-2-y: 674px;
+$question-2-offset-x: 0px;
+$question-2-offset-y: -674px;
+$question-2-width: 715px;
+$question-2-height: 183px;
+$question-2-total-width: 1729px;
+$question-2-total-height: 989px;
+$question-2-image: '../images/sprite.png';
+$question-2: (0px, 674px, 0px, -674px, 715px, 183px, 1729px, 989px, '../images/sprite.png', 'question-2', );
+$question-3-name: 'question-3';
+$question-3-x: 1014px;
+$question-3-y: 0px;
+$question-3-offset-x: -1014px;
+$question-3-offset-y: 0px;
+$question-3-width: 715px;
+$question-3-height: 183px;
+$question-3-total-width: 1729px;
+$question-3-total-height: 989px;
+$question-3-image: '../images/sprite.png';
+$question-3: (1014px, 0px, -1014px, 0px, 715px, 183px, 1729px, 989px, '../images/sprite.png', 'question-3', );
+$question-4-name: 'question-4';
+$question-4-x: 0px;
+$question-4-y: 242px;
+$question-4-offset-x: 0px;
+$question-4-offset-y: -242px;
+$question-4-width: 862px;
+$question-4-height: 249px;
+$question-4-total-width: 1729px;
+$question-4-total-height: 989px;
+$question-4-image: '../images/sprite.png';
+$question-4: (0px, 242px, 0px, -242px, 862px, 249px, 1729px, 989px, '../images/sprite.png', 'question-4', );
+$question-age-name: 'question-age';
+$question-age-x: 1014px;
+$question-age-y: 362px;
+$question-age-offset-x: -1014px;
+$question-age-offset-y: -362px;
+$question-age-width: 546px;
+$question-age-height: 158px;
+$question-age-total-width: 1729px;
+$question-age-total-height: 989px;
+$question-age-image: '../images/sprite.png';
+$question-age: (1014px, 362px, -1014px, -362px, 546px, 158px, 1729px, 989px, '../images/sprite.png', 'question-age', );
+$radio-checked-name: 'radio-checked';
+$radio-checked-x: 1644px;
+$radio-checked-y: 183px;
+$radio-checked-offset-x: -1644px;
+$radio-checked-offset-y: -183px;
+$radio-checked-width: 45px;
+$radio-checked-height: 45px;
+$radio-checked-total-width: 1729px;
+$radio-checked-total-height: 989px;
+$radio-checked-image: '../images/sprite.png';
+$radio-checked: (1644px, 183px, -1644px, -183px, 45px, 45px, 1729px, 989px, '../images/sprite.png', 'radio-checked', );
+$radio-name: 'radio';
+$radio-x: 1644px;
+$radio-y: 228px;
+$radio-offset-x: -1644px;
+$radio-offset-y: -228px;
+$radio-width: 45px;
+$radio-height: 45px;
+$radio-total-width: 1729px;
+$radio-total-height: 989px;
+$radio-image: '../images/sprite.png';
+$radio: (1644px, 228px, -1644px, -228px, 45px, 45px, 1729px, 989px, '../images/sprite.png', 'radio', );
+$slider-line-name: 'slider-line';
+$slider-line-x: 1014px;
+$slider-line-y: 666px;
+$slider-line-offset-x: -1014px;
+$slider-line-offset-y: -666px;
+$slider-line-width: 447px;
+$slider-line-height: 10px;
+$slider-line-total-width: 1729px;
+$slider-line-total-height: 989px;
+$slider-line-image: '../images/sprite.png';
+$slider-line: (1014px, 666px, -1014px, -666px, 447px, 10px, 1729px, 989px, '../images/sprite.png', 'slider-line', );
+$slider-name: 'slider';
+$slider-x: 1560px;
+$slider-y: 362px;
+$slider-offset-x: -1560px;
+$slider-offset-y: -362px;
+$slider-width: 148px;
+$slider-height: 147px;
+$slider-total-width: 1729px;
+$slider-total-height: 989px;
+$slider-image: '../images/sprite.png';
+$slider: (1560px, 362px, -1560px, -362px, 148px, 147px, 1729px, 989px, '../images/sprite.png', 'slider', );
+$title-name: 'title';
+$title-x: 1014px;
+$title-y: 610px;
+$title-offset-x: -1014px;
+$title-offset-y: -610px;
+$title-width: 670px;
+$title-height: 56px;
+$title-total-width: 1729px;
+$title-total-height: 989px;
+$title-image: '../images/sprite.png';
+$title: (1014px, 610px, -1014px, -610px, 670px, 56px, 1729px, 989px, '../images/sprite.png', 'title', );
+$spritesheet-width: 1729px;
+$spritesheet-height: 989px;
+$spritesheet-image: '../images/sprite.png';
+$spritesheet-sprites: ($answer, $logo-small, $logo, $question-0, $question-1, $question-2, $question-3, $question-4, $question-age, $radio-checked, $radio, $slider-line, $slider, $title, );
+$spritesheet: (1729px, 989px, '../images/sprite.png', $spritesheet-sprites, );
+
+/*
+The provided mixins are intended to be used with the array-like variables
+
+.icon-home {
+  @include sprite-width($icon-home);
+}
+
+.icon-email {
+  @include sprite($icon-email);
+}
+
+Example usage in HTML:
+
+`display: block` sprite:
+<div class="icon-home"></div>
+
+To change `display` (e.g. `display: inline-block;`), we suggest using a common CSS class:
+
+// CSS
+.icon {
+  display: inline-block;
+}
+
+// HTML
+<i class="icon icon-home"></i>
+*/
+@mixin sprite-width($sprite) {
+  width: nth($sprite, 5);
+}
+
+@mixin sprite-height($sprite) {
+  height: nth($sprite, 6);
+}
+
+@mixin sprite-position($sprite) {
+  $sprite-offset-x: nth($sprite, 3);
+  $sprite-offset-y: nth($sprite, 4);
+  background-position: $sprite-offset-x  $sprite-offset-y;
+}
+
+@mixin sprite-image($sprite) {
+  $sprite-image: nth($sprite, 9);
+  background-image: url(#{$sprite-image});
+}
+
+@mixin sprite($sprite) {
+  @include sprite-image($sprite);
+  @include sprite-position($sprite);
+  @include sprite-width($sprite);
+  @include sprite-height($sprite);
+}
+
+/*
+The `sprites` mixin generates identical output to the CSS template
+  but can be overridden inside of SCSS
+
+@include sprites($spritesheet-sprites);
+*/
+@mixin sprites($sprites) {
+  @each $sprite in $sprites {
+    $sprite-name: nth($sprite, 10);
+    .#{$sprite-name} {
+      @include sprite($sprite);
+    }
+  }
+}

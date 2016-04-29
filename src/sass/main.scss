@@ -1,0 +1,328 @@
+@charset "UTF-8";
+/* ==========================================================================
+ * Layout
+ * ========================================================================== */
+
+.body-container{
+	overflow: hidden;
+	position: relative;
+
+}
+
+/* ==========================================================================
+ * main
+ * ========================================================================== */
+
+.app{	
+	width: 990px;
+	background: #fff;
+	margin: auto;
+	min-height: 100vh;
+	position: relative;
+	padding: 150px 0 40px;
+
+
+	&__logo{
+		position: absolute;
+		top: 0;
+		left: -150px;
+		margin: auto;
+		z-index: 500;
+
+		@include sprite($logo);
+
+		text-indent: -9999px;
+
+		@media (max-height: $mid-height){
+			//@include sprite($logo-middle);
+		}
+
+		@media (max-height: $min-height){
+			@include sprite($logo-small);
+			left: -110px;
+		}
+	}
+
+	&__title{
+		text-align: center;
+		font-size: 42px;
+		margin: 0 auto 1em;
+		font-weight: 700;
+		color: $pink;
+		font-family: $lisa;
+		text-transform: uppercase;
+		text-shadow: 1px 1px 0 #000,
+		-1px -1px 0 #000,
+		1px -1px 0 #000,
+		-1px 1px 0 #000;
+		//text-indent: -9999px;
+		//@include sprite($title);
+	}
+
+	
+	&__pages{
+
+	}
+	
+	&__page{
+		padding: 0 100px;
+	}
+
+	&__text{
+		text-align: center;
+		margin: 0 0 2em;
+	}
+
+	&__loader{
+		z-index: 100;
+	}
+	
+	&__girl-placeholder{
+		position: absolute;
+		top: 100px;
+		bottom: 50px;
+		left: 0;
+		text-align: center;
+		z-index: 500;
+	}
+
+	&__girl{
+		max-height: 100%;
+		min-height: 600px;
+		width: auto;
+		position: absolute;
+		top: 0px;
+		bottom: 0px;
+		right: -60px;
+	}
+}
+
+/* ==========================================================================
+ * loader
+ * ========================================================================== */
+
+.loader{
+	
+	top: 0;
+	left: 0;
+	right: 0;
+	bottom: 0;
+	position: fixed;
+	background: #8ddff6 url(../images/bg/bg.jpg) 50% 100% no-repeat;
+	//z-index: 1000;
+
+	&__figure{
+		position: absolute;
+		top: 0;
+		left: 0;
+		right: 0;
+		bottom: 0;
+
+		width: 50px;
+		height: 50px;
+		background: #fff;
+
+		margin: auto;
+
+		animation: 1.5s spin linear infinite;
+	}
+
+}
+
+@keyframes spin{
+	0% { transform: rotate(0) scale(1); opacity: .9;}
+	50% { transform: rotate(180deg) scale(.5); opacity: .2; }
+	100% { transform: rotate(360deg) scale(1); opacity: .9;}
+}
+
+/* ==========================================================================
+ * question
+ * ========================================================================== */
+
+
+.question{
+
+	&__title-placeholder{		
+		
+		&--age{
+			@include sprite($question-age);
+			padding: 45px 0px 0 100px;
+			margin: 0 auto 20px -50px;
+
+			.question__title{
+				transform: rotate(-7deg);
+			}
+		}	
+		
+		&--0{
+			@include sprite($question-0);
+			padding: 45px 50px 0 0px;
+			margin: 0 -30px -20px auto;
+			text-align: center;
+
+			.question__title{
+				transform: rotate(3deg);
+			}
+		}
+		
+		&--1{
+			@include sprite($question-1);
+			padding: 55px 50px 0 0px;
+			margin: 0 auto -0px -30px;
+			text-align: center;
+
+			.question__title{
+				transform: rotate(-4deg);
+			}
+		}
+				
+		&--2{
+			@include sprite($question-2);
+			padding: 50px 0px 0 60px;
+			margin: 0 auto -10px auto;
+			text-align: center;
+
+			.question__title{
+				transform: rotate(3deg);
+			}
+		}
+		
+		&--3{
+			@include sprite($question-3);
+			padding: 65px 80px 0 0px;
+			margin: 0 auto -0px -30px;
+			text-align: center;
+
+			.question__title{
+				transform: rotate(-6deg);
+			}
+		}
+				
+		&--4{
+			@include sprite($question-4);
+			padding: 60px 0px 0 80px;
+			margin: 0 auto -20px -50px;
+			text-align: center;
+
+			.question__title{
+				transform: rotate(3deg);
+			}
+		}
+	}
+
+	&__title{
+		font-size: 25px;
+		line-height: (31/25);
+		margin: 0;
+		font-weight: 700;
+		text-shadow: 1px 1px 0 #fff,
+		-1px -1px 0 #fff,
+		1px -1px 0 #fff,
+		-1px 1px 0 #fff;
+		color: #1ebaeb;
+		font-family: $lisa;
+		text-transform: uppercase;
+	}
+
+	&__list{
+		@include list;
+		margin: 0 0 30px;
+	}
+
+	&__item{
+		margin: 0 0 .5em;
+		font-size: 16px;
+	}
+
+	&__slider{
+		width: 520px;
+		margin: 0 auto 50px;
+	}
+
+
+	&__button-placeholder{
+		text-align: center;
+		//margin: 0 0 2em;
+	}
+
+}
+
+/* ==========================================================================
+ * answer
+ * ========================================================================== */
+
+
+.answer{
+
+	&__title-placeholder{		
+		@include sprite($answer);
+		padding: 0 130px 0 130px;
+		margin: -30px -130px 40px -130px;
+		text-align: center;
+		line-height: 250px;
+	}
+
+	&__title{
+		font-size: 26px;
+		margin: 0;
+		font-weight: 700;
+		text-shadow: 1px 1px 0 #fff,
+		-1px -1px 0 #fff,
+		1px -1px 0 #fff,
+		-1px 1px 0 #fff;
+		color: #1ebaeb;
+		font-family: $lisa;
+		text-transform: uppercase;
+		display: inline-block;
+		vertical-align: middle;
+		line-height: 1.2;
+	}
+
+	&__image-placeholder{
+		position: absolute;
+		top: -70px;
+		bottom: -50px;
+		left: -30px;
+		width: 300px;
+		text-align: center;
+	}
+
+	&__image{
+		max-width: 100%;
+		max-height: 100%;
+		height: auto;
+		width: auto;
+	}
+
+	&__content{
+		padding: 0 0 0 270px;
+		position: relative;
+	}
+
+	&__text{
+		margin: 0 0 50px;
+		span{
+			text-decoration: underline;
+
+		}
+	}
+
+	&__button-placeholder{
+		text-align: center;
+		//margin: 0 0 2em;
+	}
+}
+
+
+
+/* ==========================================================================
+ * error
+ * ========================================================================== */
+
+.error{
+
+	&__text{
+		text-align: center;
+	}
+}
+ 

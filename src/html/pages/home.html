@@ -1,0 +1,34 @@
+<div class="app">
+		
+	<div class="app__logo">
+		Gillette Venus
+	</div><!-- /.app__logo -->
+	
+	<div class="app__girl-placeholder">
+		
+		@@if (server === "local"){
+		<img src="assets/images/girl.png" alt="girl" class="app__girl">
+		}
+
+		@@if (server !== "local"){
+		<img src="https://ad.csdnevnik.ru/special/staging/venus/images/girl.png" alt="girl" class="app__girl">
+		}
+
+	</div><!-- /.app__girl-placeholder -->
+
+	<h1 class="app__title">
+		Какая бритва подойдет тебе?
+	</h1><!-- /.app__title -->
+
+	<div class="app__content" id="app">
+
+		<div class="app__loader loader">
+			
+			<div class="loader__figure"></div><!-- /.loader__figure -->
+
+		</div><!-- /.app__loader -->
+
+	</div><!-- /.app__content -->
+
+</div><!-- /.app -->
+

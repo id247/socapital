@@ -1,0 +1,269 @@
+@charset "UTF-8";
+/* ==========================================================================
+* Кнопки
+* ========================================================================== */
+
+.button{
+	display: inline-block;
+	border: 0;
+	outline: none;
+	text-align: center;
+	text-decoration: none;
+	padding: 0;	
+	
+	transition: all .3s;
+	line-height: 1;
+
+	font-family: $mainFontFamily;
+
+	cursor: pointer;
+
+	&:disabled{
+		background: #ccc;
+		cursor: default;
+		&:hover{
+			background: #ccc;
+		}
+	}
+
+
+	&--color{
+		background: #000;
+		color: #fff;
+		&:hover{
+			background: lighten(#000, 5%);
+		}
+		&:active{
+			background: darken(#000, 5%);
+		}
+	}
+
+	&--pink{
+		background: #e40284;
+		background: linear-gradient(to bottom, #e40284 0%, #f26cb9 100%);
+		color: #fff;
+
+		box-shadow: 0px 5px 10px rgba(0,0,0,.7);
+
+		transition: backgrouns .2s;
+
+		&:hover{
+			background: lighten(#e40284, 5%);
+			background: linear-gradient(to bottom, lighten(#e40284, 5%) 0%, lighten(#f26cb9, 5%) 100%);
+		}
+		&:active{
+			background: darken(#e40284, 5%);
+			background: linear-gradient(to bottom, darken(#e40284, 5%) 0%, darken(#f26cb9, 5%) 100%);
+			box-shadow: 0px 3px 5px rgba(0,0,0,.5);
+			position: relative;
+			top: 2px;
+		}
+
+
+		&:disabled{
+			background: #ccc;
+			cursor: default;
+			&:hover{
+				background: #ccc;
+			}
+		}
+	}
+
+	&--m{
+		border-radius: 14px;
+		font-weight: 300;
+		font-size: 18px;
+		padding: 16px 30px 16px;
+
+	}
+
+	&--l{
+		border-radius: 8px;
+		font-weight: 700;
+		font-size: 15px;
+		padding: 10px 20px 10px;
+	}
+
+	&--block{
+		width: 100%;	
+		padding-left: 0;
+		padding-right: 0;
+	}
+
+
+}
+
+/* ==========================================================================
+* Формы
+* ========================================================================== */
+
+.form{
+
+	@include clearfix;
+
+	&__line{
+		@include clearfix;
+		margin-bottom: 16px;
+	}
+
+	&__input-placeholder{
+		position: relative;
+		margin-bottom: 16px;
+
+		&--inline{
+			width: 48%;
+			float: right;
+			margin-bottom: 0;
+			&:first-child{
+				float: left;
+			}
+		}
+	}
+
+	label.error{
+		font-size: 13px;
+		color: #ef6d51;
+		//position: absolute;
+		//top: -13px;
+		//right: 0;
+		//margin-left: 0;
+		//padding: 5px;
+		//text-align: center;
+		//white-space: nowrap;
+		///color: #fff;
+		///border-radius: 5px;
+		//background: #000;
+		//background: rgba(0, 0, 0, .7);
+	}
+
+	&__button-placeholder{
+		margin-top: 20px;
+	}
+
+	&__input,
+	&__textarea{
+		-webkit-appearance: none;
+		padding: 0 0 0 20px;
+		width: 100%;
+		outline: none;
+		border: 1px solid #d7d7d7;
+		max-width: 100%;
+		font-size: 15px;
+		font-family: $mainFontFamily;
+		background: #f6f5f1;
+		border-radius: 5px;
+		box-shadow: inset 0 2px 3px rgba(0,0,0,.13); 
+		&.error{
+			border-color: #ef6d51;
+		}
+	}
+	&__input{
+		&--h40{
+			height: 40px;
+			line-height: 40px;
+		}
+	}
+	&__textarea{
+		padding-top: 10px;
+		height: 210px;
+		&--h120{
+			height: 120px;
+		}
+	}
+}
+
+
+/* ==========================================================================
+ * checkbox
+ * ========================================================================== */
+
+.radio{
+	position: relative;
+	cursor: pointer;
+
+	line-height: 1;
+	//min-height: 40px;
+	display: inline-block;
+	padding: 0;
+	min-height: 45px;
+
+	&__input{
+		position: absolute;
+		left: -9999px;
+		top: 0;
+
+		&:checked + .radio__text:before{
+			@include sprite($radio-checked);
+		}
+	}
+
+	&__text{
+		display: inline-block;
+		vertical-align: middle;
+		//font-size: 18px;
+		line-height: (22/18);
+		padding: 12px 0 0 60px;
+		box-sizing: border-box;
+		color: $text;
+
+		&:before{
+			box-sizing: border-box;
+			content: '';
+			display: block;
+
+			@include sprite($radio);
+
+			position: absolute;
+			top: 0px;
+			left: 0px;
+		}
+	}
+
+
+}
+
+
+/* ==========================================================================
+ * slider
+ * ========================================================================== */
+
+.slider{
+	height: 80px;
+	position: relative;
+
+	&:before{
+		content: '';
+		display: block;
+		@include sprite($slider-line);
+		position: absolute;
+		top: 50%;
+		left: 0;
+		right: 0;
+		margin: auto;
+	}
+	&__handle{
+		position: relative;
+		width: 80px;
+		height: 80px;
+		padding: 0 5px 0 0;
+		text-align: center;
+		font-size: 30px;
+		color: #fff;
+		line-height: 80px;
+		z-index: 1;
+		cursor: move;
+		&:before{
+			//opacity: .5;
+			content: '';
+			display: block;
+			@include sprite($slider);
+			position: absolute;
+			top: -34px;
+			left: -34px;
+			z-index: -1;
+		};		
+	}
+
+	
+}
+
