@@ -1,34 +1,357 @@
-<div class="app">
+<header class="header" id="header">
+
+	<div class="header__wrap wrap">
 		
-	<div class="app__logo">
-		Gillette Venus
-	</div><!-- /.app__logo -->
-	
-	<div class="app__girl-placeholder">
-		
-		@@if (server === "local"){
-		<img src="assets/images/girl.png" alt="girl" class="app__girl">
-		}
+		<div class="header__logo">
 
-		@@if (server !== "local"){
-		<img src="https://ad.csdnevnik.ru/special/staging/venus/images/girl.png" alt="girl" class="app__girl">
-		}
-
-	</div><!-- /.app__girl-placeholder -->
-
-	<h1 class="app__title">
-		Какая бритва подойдет тебе?
-	</h1><!-- /.app__title -->
-
-	<div class="app__content" id="app">
-
-		<div class="app__loader loader">
+			<a href="#" class="header-logo">				
+				Smart Orange Capital
+			</a>
 			
-			<div class="loader__figure"></div><!-- /.loader__figure -->
+		</div><!-- /.header__logo -->
 
-		</div><!-- /.app__loader -->
+		<div class="header__contacts header-contacts">
 
-	</div><!-- /.app__content -->
+			<ul class="header-contacts__list">
+				
+				<li class="header-contacts__item">		
+					
+					<a href="tel:+74956498487" class="header-contacts__phone inverselink">+7 495 649-84-87</a>
+					
+				</li> <!-- end .header-contacts__item -->
+				
+				<li class="header-contacts__item">		
+					
+					<a href="mailto:info@socapital.ru" class="header-contacts__email link">info@socapital.ru</a>
+					
+				</li> <!-- end .header-contacts__item -->
+			
+			</ul> <!-- end .header-contacts__list -->
+			
+		</div><!-- /.header__contacts -->
 
-</div><!-- /.app -->
+		<div class="header__content">
+			
+			<div class="header__slogan header-slogan">
+				Инвестиции<span class="header-slogan__dot">.</span>
+				Управление&nbsp;проектами<span class="header-slogan__dot">.</span>
+			</div><!-- /.header__slogan -->
+
+			<div class="header__menu menu">
+				
+				<ul class="menu__list">
+					
+					<li class="menu__item">
+						<a href="#about" class="menu__href inverselink js-goto active">О нас</a>
+					</li>
+					
+					<li class="menu__item">
+						<a href="#activity" class="menu__href inverselink js-goto">Направления деятельности</a>
+					</li>
+			
+					
+					<li class="menu__item">
+						<a href="#projects" class="menu__href inverselink js-goto">Проекты</a>
+					</li>
+			
+					
+					<li class="menu__item">
+						<a href="#modal-cooperation" class="menu__href inverselink js-modal-toggle">Сотрудничество</a>
+					</li>
+			
+					
+					<li class="menu__item">
+						<a href="#contacts" class="menu__href inverselink js-goto">Контакты</a>
+					</li>
+			
+				</ul> <!-- end .menu__list -->
+				
+			</div><!-- /.header__menu -->
+
+		</div><!-- /.header__content -->
+		
+	</div> <!-- end .header__wrap wrap -->
+
+</header> <!-- end .header -->
+
+
+
+<section class="section about" id="about" data-scroll="enable">
+
+	<div class="section__inner">
+
+		<div class="section__content">
+
+			<div class="section__wrap wrap">
+				
+				<div class="block block--transparent-white">
+
+					<div class="block__border">
+
+						<div class="block__content">
+
+							<div class="about__top">
+
+								<h2 class="block__title">
+									О нас
+								</h2><!-- /.block__title -->
+
+								<div class="block__text text">
+									<p>
+										<strong>Smart Orange Capital</strong> – группа компаний с 20-летним опытом инвестирования и развития проектов, от стартапов до градообразующих предприятий, в различных сферах бизнеса: недвижимость, строительство, транспорт, производство, IT-разработки. Уверенность в команде, ее слаженности и профессионализме, позволяет нам разделять с партнерами все проектные риски от операционных до финансовых.
+									</p>
+								</div><!-- /.block__text -->
+
+							</div><!-- /.about__top -->
+
+							<div class="about__bottom">
+								
+								<div class="about__result text">
+									<p>
+										Мы зарабатываем от положительного результата, а не от процесса сопровождения проекта.
+									</p>
+								</div><!-- /.about__result -->
+
+								<div class="about__button-placeholder">
+									
+									<a href="#modal-order" class="button button--orange button--l js-modal-toggle">Отправить заявку</a>
+
+								</div><!-- /.about__button-placeholder -->
+
+							</div><!-- /.about__bottom -->
+
+						</div><!-- /.block__content -->
+
+					</div><!-- /.block__border -->
+					
+				</div><!-- /.block -->
+				
+			</div> <!-- end .section__wrap wrap -->
+
+		</div><!-- /.section__content -->
+
+	</div><!-- /.section__inner -->
+
+	<a href="#projects" class="section__scroll section__scroll--gray js-goto">
+		Крутите вниз, чтобы узнать больше
+	</a><!-- /.section__scroll -->
+
+</section> <!-- end .about -->
+
+
+<section class="section activity" id="activity" data-scroll="enable">
+
+	<div class="section__inner">
+
+		<div class="section__content">
+
+			<div class="section__wrap wrap">
+				
+				<div class="block block--transparent-grey">
+
+					<div class="block__border">
+
+						<div class="block__content">
+
+							<h2 class="block__title">
+								Направления деятельности
+							</h2><!-- /.block__title -->
+
+							<div class="block__text text">
+								<p>
+									<strong>Smart Orange Capital</strong> – группа компаний с 20-летним опытом инвестирования и развития проектов, от стартапов до градообразующих предприятий, в различных сферах бизнеса: недвижимость, строительство, транспорт, производство, IT-разработки. Уверенность в команде, ее слаженности и профессионализме, позволяет нам разделять с партнерами все проектные риски от операционных до финансовых.
+								</p>
+							</div><!-- /.block__text -->
+
+						</div><!-- /.block__content -->
+
+					</div><!-- /.block__border -->
+					
+				</div><!-- /.block -->
+				
+			</div> <!-- end .section__wrap wrap -->
+
+		</div><!-- /.section__content -->
+	
+	</div><!-- /.section__inner -->
+
+	<a href="#activity" class="section__scroll section__scroll--gray js-goto">
+		Крутите вниз, чтобы узнать больше
+	</a><!-- /.section__scroll -->
+
+</section> <!-- end .section -->
+
+
+<section class="section projects" id="projects">
+
+	<div class="section__inner">
+
+		<div class="section__content">
+
+			<div class="section__wrap wrap">
+				
+				<div class="block block--white">
+
+					<div class="block__border">
+
+						<div class="block__content">
+
+							<h2 class="block__title">
+								Реализованные проекты
+							</h2><!-- /.block__title -->
+
+							<div class="block__text text">
+								<p>
+									<strong>Smart Orange Capital</strong> – группа компаний с 20-летним опытом инвестирования и развития проектов, от стартапов до градообразующих предприятий, в различных сферах бизнеса: недвижимость, строительство, транспорт, производство, IT-разработки. Уверенность в команде, ее слаженности и профессионализме, позволяет нам разделять с партнерами все проектные риски от операционных до финансовых.
+								</p>
+								<p>
+									<strong>Smart Orange Capital</strong> – группа компаний с 20-летним опытом инвестирования и развития проектов, от стартапов до градообразующих предприятий, в различных сферах бизнеса: недвижимость, строительство, транспорт, производство, IT-разработки. Уверенность в команде, ее слаженности и профессионализме, позволяет нам разделять с партнерами все проектные риски от операционных до финансовых.
+								</p>
+								<p>
+									<strong>Smart Orange Capital</strong> – группа компаний с 20-летним опытом инвестирования и развития проектов, от стартапов до градообразующих предприятий, в различных сферах бизнеса: недвижимость, строительство, транспорт, производство, IT-разработки. Уверенность в команде, ее слаженности и профессионализме, позволяет нам разделять с партнерами все проектные риски от операционных до финансовых.
+								</p>
+								<p>
+									<strong>Smart Orange Capital</strong> – группа компаний с 20-летним опытом инвестирования и развития проектов, от стартапов до градообразующих предприятий, в различных сферах бизнеса: недвижимость, строительство, транспорт, производство, IT-разработки. Уверенность в команде, ее слаженности и профессионализме, позволяет нам разделять с партнерами все проектные риски от операционных до финансовых.
+								</p>
+								<p>
+									<strong>Smart Orange Capital</strong> – группа компаний с 20-летним опытом инвестирования и развития проектов, от стартапов до градообразующих предприятий, в различных сферах бизнеса: недвижимость, строительство, транспорт, производство, IT-разработки. Уверенность в команде, ее слаженности и профессионализме, позволяет нам разделять с партнерами все проектные риски от операционных до финансовых.
+								</p>
+								<p>
+									<strong>Smart Orange Capital</strong> – группа компаний с 20-летним опытом инвестирования и развития проектов, от стартапов до градообразующих предприятий, в различных сферах бизнеса: недвижимость, строительство, транспорт, производство, IT-разработки. Уверенность в команде, ее слаженности и профессионализме, позволяет нам разделять с партнерами все проектные риски от операционных до финансовых.
+								</p>
+								<p>
+									<strong>Smart Orange Capital</strong> – группа компаний с 20-летним опытом инвестирования и развития проектов, от стартапов до градообразующих предприятий, в различных сферах бизнеса: недвижимость, строительство, транспорт, производство, IT-разработки. Уверенность в команде, ее слаженности и профессионализме, позволяет нам разделять с партнерами все проектные риски от операционных до финансовых.
+								</p>
+								<p>
+									<strong>Smart Orange Capital</strong> – группа компаний с 20-летним опытом инвестирования и развития проектов, от стартапов до градообразующих предприятий, в различных сферах бизнеса: недвижимость, строительство, транспорт, производство, IT-разработки. Уверенность в команде, ее слаженности и профессионализме, позволяет нам разделять с партнерами все проектные риски от операционных до финансовых.
+								</p>
+							</div><!-- /.block__text -->
+
+						</div><!-- /.block__content -->
+
+					</div><!-- /.block__border -->
+					
+				</div><!-- /.block -->
+				
+			</div> <!-- end .section__wrap wrap -->
+
+		</div><!-- /.section__content -->
+	
+	</div><!-- /.section__inner -->
+
+	<a href="#activity" class="section__scroll section__scroll--gray js-goto">
+		Крутите вниз, чтобы узнать больше
+	</a><!-- /.section__scroll -->
+
+</section> <!-- end .section -->
+
+
+<section class="section contacts" id="contacts" data-scroll="enable">
+	
+	<div class="contacts__row">
+
+		<div class="contacts__map map">
+
+			<div class="map__inner">
+
+				<div class="map__map">
+					
+				</div><!-- /.map__map -->
+
+				<div class="map__content">
+							
+					<div class="block block--white">
+
+						<div class="block__border">
+
+							<div class="block__content">
+
+								<h2 class="block__title">
+									Контакты
+								</h2><!-- /.block__title -->
+
+								<ul class="contacts__list">
+									
+									<li class="contacts__item contacts__item--phone">		
+										
+										<a href="tel:+74956498487" class="contacts__phone">+7 495 649-84-87</a>
+										
+									</li> <!-- end .contacts__item -->
+									
+									<li class="contacts__item contacts__item--address">		
+										
+										Москва, ул. Шухова, 14
+										
+									</li> <!-- end .contacts__item -->
+									
+									<li class="contacts__item contacts__item--email">		
+										
+										<a href="mailto:info@socapital.ru" class="contacts__email link">info@socapital.ru</a>
+										
+									</li> <!-- end .contacts__item -->
+								
+								</ul> <!-- end .contacts__list -->
+
+							</div><!-- /.block__content -->
+
+						</div><!-- /.block__border -->
+						
+					</div><!-- /.block -->
+					
+				</div> <!-- end .map__content -->
+			
+			</div><!-- /.map__inner -->
+
+		</div><!-- /.contacts__map -->
+
+	</div><!-- /.contacts__row -->
+
+	<div class="contacts__row">
+	
+	
+		<footer class="contacts__footer footer" id="footer">
+
+			<div class="footer__wrap wrap">
+				
+				<div class="footer__logo-placeholder">
+					
+					<a href="#" class="footer__logo">Smart Orange Capital</a>
+
+				</div><!-- /.footer__logo -->
+
+				<div class="footer__social social">
+					
+					<ul class="social__list">
+						
+						<li class="social__item">		
+							
+							<a href="#" class="social__href social__href--in">LinkedIn</a>
+							
+						</li> <!-- end .social__item -->
+						
+						<li class="social__item">		
+							
+							<a href="#" class="social__href social__href--fb">Facebook</a>
+							
+						</li> <!-- end .social__item -->
+					
+					</ul> <!-- end .social__list -->
+
+				</div><!-- /.footer__social -->	
+
+				<div class="footer__content text">
+					<p>
+						&copy; 2016 Smart Orange Capital. <br />
+						Все права защищены
+					</p>
+				</div><!-- /.footer__content -->	
+				
+			</div> <!-- end .footer__wrap wrap -->
+
+		</footer> <!-- end .footer -->
+
+	</div><!-- /.contacts__row -->
+
+</section> <!-- end .contacts -->
+
 

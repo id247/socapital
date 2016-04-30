@@ -3,8 +3,7 @@
   "version": "1.0.0",
   "description": "",
   "main": "gulpfile.js",
-  "dependencies": {
-  },
+  "dependencies": {},
   "devDependencies": {
     "del": "latest",
     "eslint": "^2.7.0",
@@ -12,6 +11,7 @@
     "gulp-autoprefixer": "latest",
     "gulp-css-image-dimensions": "latest",
     "gulp-file-include": "latest",
+    "gulp-if": "^2.0.0",
     "gulp-newer": "^1.1.0",
     "gulp-notify": "^2.2.0",
     "gulp-sass": "latest",
@@ -19,7 +19,7 @@
     "gulp-sourcemaps": "latest",
     "gulp-util": "latest",
     "gulp-watch": "latest",
-    "gulp.spritesmith": "latest",
+    "gulp.spritesmith": "latest"
   },
   "scripts": {
     "lint": "eslint src"

@@ -67,22 +67,22 @@
 }
 
 
-@mixin icons($name){
+@mixin sprite($name){
   //normal icons
-  $fullUrl: '../images/icons/' + $name + '@2x.png';
-  $iconUrl: 'icons/' + $name + '@2x.png';
+  $fullUrl: '../sprite/' + $name + '.png';
+  $iconUrl: '../assets/sprite/' + $name + '.png';
 
   $iconWidth: image-width( $iconUrl );
   $iconHeight: image-height( $iconUrl );
 
   background: url( $fullUrl ) 0 0 no-repeat;
-  //width: $iconWidth;  
-  //height: $iconHeight;
+  width: $iconWidth;  
+  height: $iconHeight;
   
   //2x
-  width: $iconWidth / 2;  
-  height: $iconHeight / 2;
-  background-size: $iconWidth / 2, $iconHeight / 2;
+  // width: $iconWidth / 2;  
+  // height: $iconHeight / 2;
+  // background-size: $iconWidth / 2, $iconHeight / 2;
 
 }
 

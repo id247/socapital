@@ -10,7 +10,6 @@ html{
 	line-height: 1.2;
 	font-family: $mainFontFamily;
 	color: $text;
-	background: #8ddff6 url(../images/bg/bg.jpg) 50% 100% no-repeat;
 }
 
 a{
@@ -64,15 +63,6 @@ sup{
 }
 
 .text{
-	font-size: 16px;
-	line-height: (23/16);
-	font-weight: 300;
-
-	@media (max-height: $mid-height){
-		font-size: 16px;
-	}
-
-	@media (max-height: $min-height){
-		font-size: 14px;
-	}
+	font-size: 15px;
+	line-height: (22/15);
 }

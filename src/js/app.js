@@ -1,86 +1,326 @@
-'use strict';
+;(function(){
+	
+	'use strict';
 
-import React from 'react';
-import ReactDOM from 'react-dom';
-import { emit } from './lib/dispatcher';
-import actions from './lib/actions';
-import { getState, addChangeListener } from './stores/store';
+	var maxHeight = 800;
+	var maxWidth = 1024;
 
-//pages
-import Loading from './components/pages/loading';
-import ErrorPage from './components/pages/error';
-import Quiz from './components/pages/quiz';
-import Result from './components/pages/result';
-import Age from './components/pages/age';
+	var isMobile = (function detectmob() { 
+		if( navigator.userAgent.match(/Android/i)
+		|| navigator.userAgent.match(/webOS/i)
+		|| navigator.userAgent.match(/iPhone/i)
+		|| navigator.userAgent.match(/iPad/i)
+		|| navigator.userAgent.match(/iPod/i)
+		|| navigator.userAgent.match(/BlackBerry/i)
+		|| navigator.userAgent.match(/Windows Phone/i)
+		){
+			return true;
+		} else {
+			return false;
+		}
+	})();
 
-const app = (settings) => {
+	var isNativeScrollEnabled = true;
 
-	const App = React.createClass({
-		getInitialState() {
+	function scrollMeTo(){
+		
+		$('.js-goto').on('click', function(e){
+			var $target = $(this.href.replace( /^.*\#/, '#' ) );
+			
+			if ($target.length === 1) {
+				e.preventDefault();
 
-			return getState();
-		},
-		componentWillMount() {
+				$('body,html').animate({ 
+					scrollTop: $target.offset().top,
+					easing: 'ease-in'
+				}, 500);
+			};
+		});
 
-			addChangeListener(this._update);	
+	};
 
-			emit(actions.SET_SETTINGS, this.props.settings);
+	function scroll(){
+		var isScrolling = false;
+		var $body = $('body');
+		var $sections = $('.section');
+		
+		var scrollDirection;
+		var winHeight;
 
-		},
-		componentDidMount() {
-					
-		},
-		_update() {
+		function scrollMeTo(e, index){
 
-			this.setState(getState());
-		},
-		render() {
+			var $target = $sections.eq(index);
 
-			console.log('RENDER');
+			if ($target.length === 1) {
 
-			let page;
+				e.preventDefault();
 
-			switch(this.state.page){
-				case 'age': page = <Age 	
-										/>; 
-					break;
+				isScrolling = true;
 
-				case 'quiz': page = <Quiz 	questions={this.state.questions[this.state.sex]} 
-											step={this.state.quiz.step} 
-											/>; 
-					break;
+				$sections.addClass('section--scrolling');
 
-				case 'result': page = <Result 	result={this.state.result}
-												server={this.state.settings.server}
-												groupLink={this.state.settings.groupLink}
-												/>; 
-					break;
+				var scrollTop = $target.offset().top;
 
-				case 'error': page = <ErrorPage errorMessage={this.state.errorMessage} />; 
-					break;
+				if (scrollDirection == 'up'){
+					scrollTop += ($target.outerHeight() - winHeight);
+				}
 
-				default: page = <ErrorPage errorMessage={this.state.errorMessage} />;
+				$('body,html').animate({ 
+					scrollTop: scrollTop,
+					easing: 'ease-in'
+				}, 900, function(){
+					isScrolling = false;
+					$sections.removeClass('section--scrolling');
+				});
+			};
+		}
+
+		function smoothScroll(e){
+
+			if (isScrolling){
+				e.preventDefault();
+				return;
+			}		
+
+			if (e.keyCode){
+				
+				if(e.keyCode === 38) {
+					scrollDirection = 'up';
+				}
+				else if (e.keyCode === 40){
+					scrollDirection = 'down';
+				}
+
+			}else{
+
+				if(e.originalEvent.wheelDelta / 120 > 0) {
+					scrollDirection = 'up';
+				}
+				else{
+					scrollDirection = 'down';
+				}
+
 			}
 
-			return (
-				<div>					
-					<Loading show={this.state.loading} />
-					<div className="app__pages">
-						<div className="app__page">
-							{page}
-						</div>
-					</div>
-				</div>
-			)
+			$sections.each(function(index, section){
+				
+				var rect = this.getBoundingClientRect();
+
+				if (
+					rect.top >= -(winHeight / 2)
+					&& rect.top <= winHeight / 2
+					&& rect.bottom <= winHeight * 1.5
+					){
+					
+					if ( scrollDirection  == 'up' && index > 0 ){
+						
+						if ( rect.top < 0 && rect.bottom < winHeight ){
+							
+							scrollMeTo(e, index);
+						
+						}else if( rect.top >= 0 ){
+							
+							scrollMeTo(e, index - 1);
+						}
+
+					}else if ( scrollDirection  == 'down' && index < $sections.length ){ 
+
+						if( rect.bottom <= winHeight ){
+							
+							scrollMeTo(e, index + 1);
+						
+						}else if( rect.top > 0 ){	
+						
+							scrollMeTo(e, index);
+						}
+
+					}
+				}
+
+			});
 		}
-	});
 
-	ReactDOM.render(
-		<App 	settings={settings} 
-		/>, 
-		document.getElementById('app')
-	);
+		function enableScroll(e){
+			if (!isNativeScrollEnabled && !$body.hasClass('modal-overflow')){
+				smoothScroll(e);
+			}	
+		}
 
-};
+		function resize(){
+			winHeight = ( window.innerHeight || document.documentElement.clientHeight );
+			
+			if ( winHeight > maxHeight && $(window).width() > maxWidth ){
+				isNativeScrollEnabled = false;
+			}else{
+				isNativeScrollEnabled = true;
+			}
+		}
+		resize();
 
-export default app;
+		$(window).on('resize', function(e){
+			resize();
+		});		
+
+		$(window).on('mousewheel', function(e){
+			enableScroll(e);
+		});		
+
+		$(document).keydown(function(e){
+			if (e.keyCode === 38 || e.keyCode === 40){
+				enableScroll(e);			
+			}
+		});		
+	}
+
+	function header(){
+
+		var $header = $('#header');
+
+		$header.addClass('header--fixed');
+
+		function resize(){
+			if ( $(window).scrollTop() > 100 && $(window).width() > maxWidth ){
+				$header.addClass('header--small');
+			}else{
+				$header.removeClass('header--small');
+			}
+		}
+
+		resize();
+
+		$(window).on('scroll resize', function(e){
+			resize();
+		});
+	}
+
+	function sections(){
+		var $sections = $('.section');
+
+		function resize(){
+			
+			var winHeight = $(window).height();
+
+			$sections.each(function(){
+				var $section = $(this);
+				var height = winHeight;
+
+				if (($section).data('scroll') !== 'enable'){
+					return;
+				}
+				
+				if (winHeight > maxHeight){
+					$(this).css('height', height);
+				}else{
+					$(this).css('height', '');
+				}
+				
+			});
+		}
+
+		resize();
+
+		$(window).on('resize', function(e){
+			resize();
+		});
+	}
+
+	function modal(){
+
+		var $body = $('body');
+		var $modalTogglers = $('.js-modal-toggle');
+		
+		$modalTogglers.each(function(){
+
+			var $modalToggle = $(this);
+
+			$modalToggle.on('click', function(e){
+
+				e.stopPropagation();
+
+				var $modal = $($(e.target).attr('href') || $(e.target).data('modal'));
+
+				if ($modal.length === 1){
+
+					e.preventDefault();
+
+					$modal.toggleClass('modal--opened');
+					$body.toggleClass('modal-overflow');
+
+				}
+
+			});
+		
+		});
+	}
+
+
+
+	/*
+		submit form
+	*/
+
+	function form(){		
+
+		$.extend($.validator.messages, {
+			required: 'Это поле обязательно для заполнения.',
+			remote: 'Please fix this field.',
+			email: 'Введите корректный e-mail адрес.',
+			url: 'Please enter a valid URL.',
+			date: 'Please enter a valid date.',
+			dateISO: 'Please enter a valid date (ISO).',
+			number: 'Введите число.',
+			digits: 'Допустимо вводить только цифры.',
+			creditcard: 'Please enter a valid credit card number.',
+			equalTo: 'Please enter the same value again.',
+			accept: 'Please enter a value with a valid extension.',
+			maxlength: jQuery.validator.format('Please enter no more than {0} characters.'),
+			minlength: jQuery.validator.format('Please enter at least {0} characters.'),
+			rangelength: jQuery.validator.format('Please enter a value between {0} and {1} characters long.'),
+			range: jQuery.validator.format('Please enter a value between {0} and {1}.'),
+			max: jQuery.validator.format('Please enter a value less than or equal to {0}.'),
+			min: jQuery.validator.format('Please enter a value greater than or equal to {0}.')
+		});
+
+		$('form').each( function(){
+
+			const $button = $(this).find('button[type="submit"]');
+			const $success = $(this).find('.order-form__success');
+
+			$success.hide();
+
+			$(this).validate({
+			});
+
+			$(this).on('submit', function(e){
+
+				e.preventDefault();
+
+				const form = e.target;
+
+				if ( !$(form).valid() ){
+					return false;
+				}
+
+				//submit form
+
+			});
+		});
+
+	}
+
+	function init(){
+		if (!isMobile){
+			header();
+			sections();
+			scroll();
+		}
+
+		scrollMeTo();		
+		modal();		
+	}
+
+	$(document).ready(function(){
+		init();
+	});	
+
+})();

@@ -18,42 +18,29 @@
     font-weight: 700;
     font-style: normal;
 }
-
 @font-face {
-    font-family: 'LLLisa';
-    src: url('../fonts/LLLisa.woff') format('woff');
-    font-weight: normal;
+    font-family: 'Helvetica Neue';
+    src: url('../fonts/HelveticaNeueCyr-Medium.woff') format('woff');
+    font-weight: 600;
     font-style: normal;
 }
 
 
-// @font-face {
-//     font-family: 'Avant';
-//     src: url('../fonts/aavantecpslcbrkhll.woff') format('woff');
-//     font-weight: normal;
-//     font-style: normal;
-// }
-
-
 $mainFontFamily: 'Helvetica Neue', Helvetica, sans-serif;
-$lisa: 'LLLisa', sans-serif;
-//$avant: 'LLLisa', 'Avant', sans-serif;
 
 //
 //colors
 //
 
-$blue: #044073;
-$blue-light: #1162a7;
-$text: #323232;
-$pink: #f1b0d1;
+$text: #36383a;
+$orange: #ff4708;
 
 //
 //medias
 //
 
-$mid-height: 900px;
-$min-height: 600px;
+$max-width: 1024px;
+$max-height: 800px;
 
 //@media #{$media-xs-max} {
 // 	background: red;

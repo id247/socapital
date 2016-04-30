@@ -38,6 +38,18 @@
 		}
 	}
 
+
+	&--orange{
+		background: $orange;
+		color: #fff;
+		&:hover{
+			background: lighten( $orange, 5%);
+		}
+		&:active{
+			background: darken( $orange, 5%);
+		}
+	}
+
 	&--pink{
 		background: #e40284;
 		background: linear-gradient(to bottom, #e40284 0%, #f26cb9 100%);
@@ -78,10 +90,10 @@
 	}
 
 	&--l{
-		border-radius: 8px;
+		border-radius: 11px;
 		font-weight: 700;
-		font-size: 15px;
-		padding: 10px 20px 10px;
+		font-size: 20px;
+		padding: 14px 35px 14px;
 	}
 
 	&--block{
@@ -193,7 +205,7 @@
 		top: 0;
 
 		&:checked + .radio__text:before{
-			@include sprite($radio-checked);
+			//@include sprite($radio-checked);
 		}
 	}
 
@@ -211,7 +223,7 @@
 			content: '';
 			display: block;
 
-			@include sprite($radio);
+			//@include sprite($radio);
 
 			position: absolute;
 			top: 0px;
@@ -222,48 +234,4 @@
 
 }
 
-
-/* ==========================================================================
- * slider
- * ========================================================================== */
-
-.slider{
-	height: 80px;
-	position: relative;
-
-	&:before{
-		content: '';
-		display: block;
-		@include sprite($slider-line);
-		position: absolute;
-		top: 50%;
-		left: 0;
-		right: 0;
-		margin: auto;
-	}
-	&__handle{
-		position: relative;
-		width: 80px;
-		height: 80px;
-		padding: 0 5px 0 0;
-		text-align: center;
-		font-size: 30px;
-		color: #fff;
-		line-height: 80px;
-		z-index: 1;
-		cursor: move;
-		&:before{
-			//opacity: .5;
-			content: '';
-			display: block;
-			@include sprite($slider);
-			position: absolute;
-			top: -34px;
-			left: -34px;
-			z-index: -1;
-		};		
-	}
-
-	
-}
 
