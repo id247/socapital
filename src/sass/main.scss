@@ -492,8 +492,8 @@
 		display: inline-block;
 		vertical-align: top;
 		text-align: left;
-		width: 252px;
-		margin: 0 10px 30px;
+		width: 250px;
+		margin: 0 11px 30px;
 	}
 }
 
@@ -565,6 +565,85 @@
 
 	background: #ece4df url(../images/bg/projects.jpg) 50% 0% no-repeat;
 	background-size: cover;
+
+
+	&__list{
+		@include list;
+		margin: 0 -30px 30px;
+		text-align: center;
+	}
+
+	&__item{
+		display: inline-block;
+		vertical-align: top;
+		text-align: left;
+		width: 250px;
+		margin: 0 11px 30px;
+	}
+
+	&__more-placeholder{
+		padding: 0 0 0 30px;
+	}
+
+	&__more{
+		position: relative;
+		font-size: 19px;
+		font-weight: 600;
+
+		&:before{
+			content: '';
+			display: block;
+			width: 0;
+			height: 0;
+			border-style: solid;
+			border-width: 10px 5px 0 5px;
+			border-color: $text transparent transparent transparent;
+			position: absolute;
+			top: 0;
+			left: -20px;
+			bottom: 0;
+			margin: auto;
+		}
+	}
+
+}
+
+.projects-item{
+
+	&__image-placeholder{
+		height: 237px;
+		overflow: hidden;
+		margin: 0 0 25px;
+	}
+
+	&__image{
+		display: block;
+		min-width: 100%;
+		height: 100%;
+	}
+
+	&__title-placeholder{
+		margin: 0 -10px 20px 0;
+	}
+
+	&__title{
+		color: $orange;
+		font-weight: 600;
+		font-size: 18px;
+		line-height: 1.3;
+	}
+
+	&__list{
+		@include list;
+		list-style: disc;
+		padding-left: 15px;
+		margin-bottom: -7px;
+		font-size: 14px;
+	}
+
+	&__list-item{
+		margin: 0 0 7px;
+	}
 }
 
 /* ==========================================================================
