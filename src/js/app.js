@@ -41,7 +41,7 @@
 
 	function scroll(){
 		var isScrolling = false;
-		var $body = $('body');
+		var $html = $('html');
 		var $sections = $('.section');
 		
 		var scrollDirection;
@@ -141,7 +141,7 @@
 		}
 
 		function enableScroll(e){
-			if (!isNativeScrollEnabled && !$body.hasClass('modal-overflow')){
+			if (!isNativeScrollEnabled && !$html.hasClass('fancybox-lock')){
 				smoothScroll(e);
 			}	
 		}
@@ -226,31 +226,19 @@
 
 	function modal(){
 
-		var $body = $('body');
-		var $modalTogglers = $('.js-modal-toggle');
-		
-		$modalTogglers.each(function(){
-
-			var $modalToggle = $(this);
-
-			$modalToggle.on('click', function(e){
-
-				e.stopPropagation();
-
-				var $modal = $($(e.target).attr('href') || $(e.target).data('modal'));
-
-				if ($modal.length === 1){
-
-					e.preventDefault();
-
-					$modal.toggleClass('modal--opened');
-					$body.toggleClass('modal-overflow');
-
+		$('.js-fancybox').fancybox({
+			padding: 0,
+			scrolling: 'no',
+			autoCenter : false,
+			fitToView: false,
+			helpers: {
+				overlay: {
+					//locked: false // if true (default), the content will be locked into overlay
 				}
-
-			});
-		
+			}
 		});
+	 
+
 	}
 
 
