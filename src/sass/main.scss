@@ -307,6 +307,24 @@
 	
 	padding: 0 0 118px;
 
+	&--big{
+
+		.block__border{
+
+			@media (min-height: $max-height) and (max-height: 850px){
+				padding-top: 20px;
+			}		
+		}
+
+		.block__content{
+
+			@media (min-height: $max-height) and (max-height: 850px){
+				margin-bottom: -130px;
+			}		
+		}
+
+	}
+
 	&--transparent-white{
 
 		.block__border{			
@@ -459,6 +477,83 @@
 
 .activity{
 	background: #fff;
+
+	&__text{
+		margin: 0 0 30px;
+	}
+
+	&__list{
+		@include list;
+		margin: 0 -30px -30px;
+		text-align: center;
+	}
+
+	&__item{
+		display: inline-block;
+		vertical-align: top;
+		text-align: left;
+		width: 252px;
+		margin: 0 10px 30px;
+	}
+}
+
+.activity-item{
+	position: relative;
+	&:before{
+		content: '';
+		display: block;
+		position: absolute;
+		top: 0;
+		left: 0;
+	}
+
+	&--1{
+		&:before{
+			@include sprite(ways-1);
+		}
+	}
+
+	&--2{
+		&:before{
+			@include sprite(ways-2);
+		}
+	}
+
+	&--3{
+		&:before{
+			@include sprite(ways-3);
+		}
+	}
+
+	&__title-placeholder{
+		line-height: 50px;
+		padding: 0 0 0 60px;
+		margin: 0 0 20px;
+	}
+
+	&__title{
+		display: inline-block;
+		vertical-align: middle;
+		line-height: 0.9;
+		font-size: 26px;
+		font-weight: 600;
+	}
+
+	&__content{
+		margin: 0 0 20px;
+		min-height: 250px;
+	}
+
+	&__desc{
+		font-size: 14px;
+		color: $orange;
+		font-weight: 700;
+		margin: 0 0 20px;
+	}
+
+	&__text{
+		font-size: 13px;
+	}
 }
 
 
