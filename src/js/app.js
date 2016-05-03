@@ -334,7 +334,7 @@
 					timeout: 3000,
 					datatype: 'json',
 				    success: function showResponse(responseText, statusText, xhr, $form)  { 
-				        $('js-success-modal').click();
+				        $('.js-success-modal').click();
 				    }       
 				});
 			});
