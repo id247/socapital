@@ -22,6 +22,8 @@
 
 	var isNativeScrollEnabled = true;
 
+	var sliderIds = {};
+
 	function scrollMeTo(){
 		
 		$('.js-goto').on('click', function(e){
@@ -235,6 +237,23 @@
 				overlay: {
 					//locked: false // if true (default), the content will be locked into overlay
 				}
+			},
+			afterShow: function(){
+				var $content = $(this.content);
+				var $slider = $content.find('.project-images__list');
+				
+				if ($slider.length === 1 && $slider.children().length > 1){
+					
+					this.imagesSlider = $slider.bxSlider({
+						pager: false
+					});
+				}
+			},
+			afterClose: function(){
+				if (this.imagesSlider){
+					this.imagesSlider.destroySlider();
+					this.imagesSlider = false;
+				}
 			}
 		});
 	 
@@ -242,10 +261,31 @@
 	}
 
 
+	function projects(){
+		var $projectsLists = $('.projects__list').not(':first');
+		var $projectsMore = $('.projects__more');
 
-	/*
-		submit form
-	*/
+		$projectsLists.hide();
+		$projectsMore.show();
+
+		$projectsMore.on('click', function(e){
+			e.preventDefault();
+
+			$projectsLists.each(function(index){
+				var $this = $(this);
+				if (!$this.is(':visible')){
+					$this.slideDown();
+
+					if (index === $projectsLists.length - 1){
+						$projectsMore.hide();
+					}
+
+					return false;
+				}
+			});
+		});
+	}
+
 
 	function form(){		
 
@@ -290,11 +330,43 @@
 				}
 
 				//submit form
-
+				$(form).ajaxSubmit({
+					timeout: 3000,
+					datatype: 'json',
+				    success: function showResponse(responseText, statusText, xhr, $form)  { 
+				        $('js-success-modal').click();
+				    }       
+				});
 			});
 		});
 
 	}
+
+	function fileInput(){
+
+		var $file = $('.file');
+
+		$file.each(function(){
+
+			var $file = $(this);
+			var $input = $file.find('.file__input');
+			var $text = $file.find('.file__text');
+			var $clickable = $file.find('.file__button, .file__text');
+
+			$clickable.on('click', function(e){			
+				e.preventDefault();
+				$input.click();
+			});
+
+			$input.on('change', function(){
+				var text = $input.val().replace('C:\\fakepath\\', '') || $text.data('placeholder');
+				$text.text(text);
+			});
+
+		});
+
+	}
+
 
 	function init(){
 		if (!isMobile){
@@ -304,7 +376,10 @@
 		}
 
 		scrollMeTo();		
-		modal();		
+		projects();		
+		modal();			
+		form();		
+		fileInput();		
 	}
 
 	$(document).ready(function(){
