@@ -311,19 +311,15 @@
 
 		$('form').each( function(){
 
-			const $button = $(this).find('button[type="submit"]');
-			const $success = $(this).find('.order-form__success');
-
-			$success.hide();
-
 			$(this).validate({
+
 			});
 
 			$(this).on('submit', function(e){
 
 				e.preventDefault();
 
-				const form = e.target;
+				var form = e.target;
 
 				if ( !$(form).valid() ){
 					return false;
