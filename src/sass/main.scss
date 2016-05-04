@@ -916,25 +916,23 @@
  * ========================================================================== */
 
 .contacts{
-	//height: 560px;
-	//position: relative;
-	display: table;
-	width: 100%;
-	//height: 100%;
-	padding: 0;
-
-	&__row{
-		display: table-row;
-	}
+	
+	position: relative;
+	min-height: 750px;
 
 	&__map{
-		display: table-cell;
-		//height: 1px;
+		position: absolute;
+		top: 0;
+		right: 0;
+		bottom: 0;
+		left: 0;
 	}
 
 	&__footer{
-		display: table-cell;
-		height: 1px;
+		position: absolute;
+		left: 0;
+		bottom: 0;
+		right: 0;
 	}
 
 	&__list{
@@ -992,11 +990,6 @@
 
 .map{
 	
-	&__inner{
-		position: relative;
-		height: 100%;
-	}
-
 	&__map{
 		position: absolute;
 		top: 0;

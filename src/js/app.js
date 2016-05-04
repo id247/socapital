@@ -95,7 +95,7 @@
 
 			}else{
 
-				if(e.originalEvent.wheelDelta / 120 > 0) {
+				if(e.deltaY > 0) {
 					scrollDirection = 'up';
 				}
 				else{
@@ -108,30 +108,33 @@
 				
 				var rect = this.getBoundingClientRect();
 
+				var rectTop = Math.round(rect.top);
+				var rectBottom = Math.round(rect.bottom);
+
 				if (
-					rect.top >= -(winHeight / 2)
-					&& rect.top <= winHeight / 2
-					&& rect.bottom <= winHeight * 1.5
+					rectTop >= -(winHeight / 2)
+					&& rectTop <= winHeight / 2
+					&& rectBottom <= winHeight * 1.5
 					){
 					
 					if ( scrollDirection  == 'up' && index > 0 ){
 						
-						if ( rect.top < 0 && rect.bottom < winHeight ){
+						if ( rectTop < 0 && rectBottom < winHeight ){
 							
 							scrollMeTo(e, index);
 						
-						}else if( rect.top >= 0 ){
+						}else if( rectTop >= 0 ){
 							
 							scrollMeTo(e, index - 1);
 						}
 
 					}else if ( scrollDirection  == 'down' && index < $sections.length ){ 
 
-						if( rect.bottom <= winHeight ){
+						if( rectBottom <= winHeight ){
 							
 							scrollMeTo(e, index + 1);
 						
-						}else if( rect.top > 0 ){	
+						}else if( rectTop > 0 ){	
 						
 							scrollMeTo(e, index);
 						}
@@ -363,6 +366,43 @@
 
 	}
 
+	function menu(){
+		var $menuHrefs = $('.menu__href');
+		var $sections = $('.section');
+
+		var winHeight = ( window.innerHeight || document.documentElement.clientHeight );
+
+		function setActive(){
+						
+			$sections.each(function(index, section){
+				
+				var sectionId = $(this).attr('id');
+				var rect = this.getBoundingClientRect();
+				var rectTop = Math.round(rect.top);
+				var rectBottom = Math.round(rect.bottom);
+
+				if (rectTop <= 50 && rectBottom / 2 <= winHeight ){
+					$menuHrefs.removeClass('active');
+					$menuHrefs.filter('[href="#' + sectionId + '"]').addClass('active');
+				}
+
+			});
+		}
+
+		setActive();
+
+		$(window).on('scroll', function(e){
+			setActive();
+		});
+
+		$(window).on('resize', function(e){
+			winHeight = ( window.innerHeight || document.documentElement.clientHeight );
+			
+			setActive();
+		});
+
+	}
+
 
 	function init(){
 		if (!isMobile){
@@ -376,6 +416,7 @@
 		modal();			
 		form();		
 		fileInput();		
+		menu();		
 	}
 
 	$(document).ready(function(){
