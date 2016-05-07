@@ -595,13 +595,17 @@
 	}
 
 	&__text{
-		border-bottom: 1px solid #d3d3d3;
-		padding: 0 0 50px;
-		margin: 0 0 50px;
+		margin: 0 0 30px;
+	}
+
+	&__button-placeholder{		
+		margin: 0 0 30px;
 	}
 
 	&__list{
+		border-top: 1px solid #d3d3d3;
 		@include list;
+		padding: 30px 0 0;
 		margin: 0 0 -8px;
 		color: #8f949a;
 		font-size: 14px;
@@ -619,6 +623,10 @@
 			left: 0;
 			@include sprite(orange-list-mark-small);
 		}
+	}
+
+	&__href{
+		color: $orange;
 	}
 }
 
@@ -956,7 +964,7 @@
 		&--phone{
 			&:before{
 				@include sprite(phone);
-				margin: 5px 0 0 3px;
+				margin: 0px 0 0 3px;
 			}
 		}
 		&--address{
@@ -975,12 +983,22 @@
 
 	&__phone{
 		color: $orange;
-		font-size: 35px;
+		font-size: 21px;
 		font-weight: 700;
 	}
 
 	&__email{
 		
+	}
+
+	&__cooperation{
+		font-size: 15px;
+		font-weight: 600;
+		margin: 0 0 17px;
+	}
+
+	&__button-placeholder{
+		margin: 0 0 20px;
 	}
 }
 
@@ -1001,9 +1019,10 @@
 
 	&__content{
 		display: inline-block;
-		//width: 465px;
+		min-width: 465px;
 		position: relative;
 		left: 50%;
+
 		margin: 150px 0 90px -480px;
 		@media (max-width: $max-width), (max-height: $max-height){
 			margin-top: 90px;
