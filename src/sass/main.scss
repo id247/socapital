@@ -154,6 +154,8 @@
 		color: #565859;
 		text-align: right;
 		transition: all .2s;
+		position: relative;
+		z-index: 2;
 	}
 
 
@@ -677,6 +679,7 @@
 .projects-item{
 
 	&__image-placeholder{
+		display: block;
 		height: 237px;
 		overflow: hidden;
 		margin: 0 0 25px;
